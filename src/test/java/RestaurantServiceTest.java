@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,4 +62,10 @@ class RestaurantServiceTest {
         assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void get_total_order_value_should_return_expected_sum_of_prices_of_items_selected(){
+        int expectedOrderValue = 119 + 269;
+        assertEquals(expectedOrderValue,service.getTotalOrderValue(List.of("Sweet corn soup","Vegetable lasagne"),restaurant));
+    }
 }
